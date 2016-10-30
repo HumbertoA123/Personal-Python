@@ -3,11 +3,17 @@
 def place_x (x, possible):
 	#Replace a number positiones on the board with X.
 	board = """
-		{}|{}|{}
-		–––––
-		{}|{}|{}
-		–––––
-		{}|{}|{}
+		   |   |
+		 {} | {} | {}
+		   |   |
+		–––––––––––
+		   |   |
+		 {} | {} | {}
+		   |   |
+		–––––––––-–
+		   |   |
+		 {} | {} | {}
+		   |   |
 		"""
 	
 	if x is 1:
@@ -36,11 +42,17 @@ def place_x (x, possible):
 def place_o (x, possible):
 	#Replace a number positioned on the board with O.
 	board = """
-		{}|{}|{}
-		–––––
-		{}|{}|{}
-		–––––
-		{}|{}|{}
+		   |   |
+		 {} | {} | {}
+		   |   |
+		–––––––––––
+		   |   |
+		 {} | {} | {}
+		   |   |
+		–––––––––-–
+		   |   |
+		 {} | {} | {}
+		   |   |
 		"""
 	
 	if x is 1:
@@ -92,11 +104,17 @@ def main ():
 	print ("Each player will type the number where they want to position their"
 	 	+ " input.")
 	print ("""
-		1|2|3
-		–––––
-		4|5|6
-		–––––
-		7|8|9
+		   |   |
+		 1 | 2 | 3
+		   |   |
+		–––––––––––
+		   |   |
+		 4 | 5 | 6
+		   |   |
+		–––––––––-–
+		   |   |
+		 7 | 8 | 9
+		   |   |
 		""")
 
 	turn = 1
