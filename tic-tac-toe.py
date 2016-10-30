@@ -66,16 +66,19 @@ def place_o (x, possible):
 			possible[5], possible[6], possible[7], possible[8], possible[9]))
 
 
-def position(possible):
+def position(possible, player):
 	#Receives and input and check it to know if it is a valid input.
 	position_value = False
 	while position_value is False:
 		try:
-			x = int(input("Type the number where you want your value to be: "))
-			if possible[x] != "X" and possible[x] != "O":
-				position_value = True
+			x = int(input("Player {} turn: ".format(player)))
+			if x >= 1 and x <= 9:
+				if possible[x] != "X" and possible[x] != "O":
+					position_value = True
+				else:
+					print ("That slot is already filled.")
 			else:
-				print ("That slot is already filled.")
+				print ("Please type a valid input.")
 		except ValueError:
 			print ("Please type a valid input.")
 	return x
@@ -85,6 +88,9 @@ def main ():
 	#Main program.
 	possible = {1 : 1, 2 : 2, 3 : 3, 4 : 4, 5 : 5,
 				6 : 6, 7 : 7, 8 : 8, 9 : 9}
+	print ("Tic-Tac-Toe")
+	print ("Each player will type the number where they want to position their"
+	 	+ " input.")
 	print ("""
 		1|2|3
 		–––––
@@ -96,12 +102,12 @@ def main ():
 	turn = 1
 	for i in range(1, 10):
 		#If i in the for loop gets to 9 then it is a tie.
-		pos = position(possible)
 
 		if (turn % 2 )!= 0:
 			#If turn % 2 is different to 0 then it is X's turn.
-			place_x(pos, possible)
 			player = "X"
+			pos = position(possible, player)
+			place_x(pos, possible)
 			#Possible win combinations.
 			if possible[1] == player and possible[2] == player and possible[3] == player:
 				print ("Congratulations!")
@@ -138,9 +144,10 @@ def main ():
 			turn += 1
 
 		elif (turn % 2) == 0:
-			#If turn % 2 is equal to 0 then it is O's turn.
-			place_o(pos, possible)
+			#If turn % 2 is equal to 0 then it is O's turn
 			player = "O"
+			pos = position(possible, player)
+			place_o(pos, possible)
 			#Possible win combinations.
 			if possible[1] == player and possible[2] == player and possible[3] == player:
 				print ("Congratulations!")
