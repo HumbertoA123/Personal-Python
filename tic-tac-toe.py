@@ -1,4 +1,4 @@
-#Tic-Tac_Toe Game
+#Tic-Tac-Toe Game
 
 def place_x (x, possible):
 	#Replace a number positiones on the board with X.
